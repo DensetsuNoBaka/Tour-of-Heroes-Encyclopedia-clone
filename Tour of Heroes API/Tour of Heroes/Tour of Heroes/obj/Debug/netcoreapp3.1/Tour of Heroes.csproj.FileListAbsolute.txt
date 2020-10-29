@@ -1,0 +1,39 @@
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\Tour of Heroes.exe
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\Tour of Heroes.deps.json
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\Tour of Heroes.runtimeconfig.json
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\Tour of Heroes.runtimeconfig.dev.json
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\Tour of Heroes.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\Tour of Heroes.pdb
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\Tour of Heroes.csprojAssemblyReference.cache
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\Tour of Heroes.AssemblyInfoInputs.cache
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\Tour of Heroes.AssemblyInfo.cs
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\Tour of Heroes.RazorTargetAssemblyInfo.cache
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\staticwebassets\Tour of Heroes.StaticWebAssets.Manifest.cache
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\staticwebassets\Tour of Heroes.StaticWebAssets.xml
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\Tour of Heroes.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\Tour of Heroes.pdb
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\Tour of Heroes.genruntimeconfig.cache
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\System.Web.Cors.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\System.Web.Http.Cors.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\Tour of Heroes.csproj.CopyComplete
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\App.config
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\Tour of Heroes.dll.config
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\Web.config
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\Tour of Heroes.csproj.CoreCompileInputs.cache
+D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\Tour of Heroes.MvcApplicationPartsAssemblyInfo.cache

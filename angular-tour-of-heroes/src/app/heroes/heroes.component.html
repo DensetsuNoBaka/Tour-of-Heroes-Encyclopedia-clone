@@ -1,0 +1,14 @@
+<!--
+<h2>My Heroes</h2>
+<ul>
+    <li *ngFor="let hero of heroes">
+        <span class="badge">{{hero.heroId}}</span> {{hero.heroName}}
+    </li>
+</ul>
+-->
+
+<div *ngFor="let hero of heroes">
+    <h2>{{hero.heroName | uppercase}}</h2>
+    <div>{{hero.powerLevel}}</div>
+    <img src={{hero.pictureUrl}}>
+</div>
