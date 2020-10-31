@@ -37,3 +37,37 @@ D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debu
 D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\TourofHeroes.app.dll
 D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\TourofHeroes.app.pdb
 D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\TourofHeroes.app.genruntimeconfig.cache
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\TourofHeroes.app.dll
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\TourofHeroes.app.pdb
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\App.config
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\Web.config
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\TourofHeroes.app.exe
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\TourofHeroes.app.dll.config
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\TourofHeroes.app.deps.json
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\TourofHeroes.app.runtimeconfig.json
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\TourofHeroes.app.runtimeconfig.dev.json
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\TourofHeroes.app.dll
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\TourofHeroes.app.pdb
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\TourofHeroes.app.csprojAssemblyReference.cache
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\TourofHeroes.app.AssemblyInfoInputs.cache
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\TourofHeroes.app.AssemblyInfo.cs
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\TourofHeroes.app.RazorTargetAssemblyInfo.cache
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\staticwebassets\TourofHeroes.app.StaticWebAssets.Manifest.cache
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\staticwebassets\TourofHeroes.app.StaticWebAssets.xml
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\TourofHeroes.app.genruntimeconfig.cache
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\TourofHeroes.app.csproj.CopyComplete
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\TourofHeroes.app.csproj.CoreCompileInputs.cache
+C:\Users\Baka\Source\Repos\DensetsuNoBaka\Tour-of-Heroes-Encyclopedia\Tour of Heroes API\Tour of Heroes\Tour of Heroes\obj\Debug\netcoreapp3.1\TourofHeroes.app.MvcApplicationPartsAssemblyInfo.cache
