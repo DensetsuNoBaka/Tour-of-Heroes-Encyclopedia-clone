@@ -51,64 +51,19 @@ namespace Tour_of_Heroes.Controllers
         [HttpPut]
         public JsonResult Put(Hero hero)
         {
-            return new JsonResult(JsonConvert.SerializeObject(""));
-        }
+            int heroId = 0;
 
-        // POST: HeroesController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+            if (hero.heroId == null) heroId = _heroHandler.Insert(hero);
+            else _heroHandler.Update(hero);
 
-        // GET: HeroesController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: HeroesController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return new JsonResult(JsonConvert.SerializeObject(heroId));
         }
 
         // GET: HeroesController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int heroId)
         {
+            _heroHandler.Delete(heroId);
             return View();
-        }
-
-        // POST: HeroesController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }
