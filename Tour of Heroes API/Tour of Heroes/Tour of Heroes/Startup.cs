@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Tour_of_Heroes.Classes;
+using Tour_of_Heroes.Entities;
+using Tour_of_Heroes.Interfaces;
 
 namespace Tour_of_Heroes
 {
@@ -29,14 +32,23 @@ namespace Tour_of_Heroes
 
             services.AddCors();
 
-            var policy = new Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicy();
+            services = AddDependencies(services);
 
-            policy.Headers.Add("*");
+            //var policy = new Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicy();
+
+            /*policy.Headers.Add("*");
             policy.Methods.Add("*");
             policy.Origins.Add("http://localhost:4200/");
-            policy.SupportsCredentials = true;
+            policy.SupportsCredentials = true;*/
 
-            services.AddCors(x => x.AddPolicy("AllPolicy", policy));
+            //services.AddCors(x => x.AddPolicy("AllPolicy", policy));
+        }
+
+        private IServiceCollection AddDependencies(IServiceCollection services)
+        {
+            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddScoped<IHandler<Hero>, HeroHandler>();
+            return services;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

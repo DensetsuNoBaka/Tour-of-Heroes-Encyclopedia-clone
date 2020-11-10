@@ -22,6 +22,12 @@ CREATE TABLE [Power] (
 );
 GO
 
+CREATE TABLE [Universe] (
+	[Universe_ID] INT PRIMARY KEY IDENTITY (1, 1) NOT NULL,
+	[Universe_Name] NVARCHAR(250) NOT NULL
+);
+GO
+
 CREATE TABLE [Hero] (
     [Hero_ID] INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	[Hero_Name] NVARCHAR(50) NOT NULL,
@@ -29,12 +35,6 @@ CREATE TABLE [Hero] (
 	[Picture_Url] NVARCHAR(MAX) NULL,
 	[Universe_ID] INT NOT NULL,
 	FOREIGN KEY([Universe_ID]) REFERENCES[Universe]([Universe_ID])
-);
-GO
-
-CREATE TABLE [Universe] (
-	[Universe_ID] INT PRIMARY KEY IDENTITY (1, 1) NOT NULL,
-	[Universe_Name] NVARCHAR(250) NOT NULL
 );
 GO
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Repo\\Tour of Heroes\\Tour of Heroes API\\Tour of Heroes\\Tour of Heroes\\TourofHeroes.app.csproj": {}
+    "C:\\Users\\Baka\\Source\\Repos\\DensetsuNoBaka\\Tour-of-Heroes-Encyclopedia\\Tour of Heroes API\\Tour of Heroes\\Tour of Heroes\\TourofHeroes.app.csproj": {}
   },
   "projects": {
-    "D:\\Repo\\Tour of Heroes\\Tour of Heroes API\\Tour of Heroes\\Tour of Heroes\\TourofHeroes.app.csproj": {
+    "C:\\Users\\Baka\\Source\\Repos\\DensetsuNoBaka\\Tour-of-Heroes-Encyclopedia\\Tour of Heroes API\\Tour of Heroes\\Tour of Heroes\\TourofHeroes.app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Repo\\Tour of Heroes\\Tour of Heroes API\\Tour of Heroes\\Tour of Heroes\\TourofHeroes.app.csproj",
+        "projectUniqueName": "C:\\Users\\Baka\\Source\\Repos\\DensetsuNoBaka\\Tour-of-Heroes-Encyclopedia\\Tour of Heroes API\\Tour of Heroes\\Tour of Heroes\\TourofHeroes.app.csproj",
         "projectName": "TourofHeroes.app",
-        "projectPath": "D:\\Repo\\Tour of Heroes\\Tour of Heroes API\\Tour of Heroes\\Tour of Heroes\\TourofHeroes.app.csproj",
+        "projectPath": "C:\\Users\\Baka\\Source\\Repos\\DensetsuNoBaka\\Tour-of-Heroes-Encyclopedia\\Tour of Heroes API\\Tour of Heroes\\Tour of Heroes\\TourofHeroes.app.csproj",
         "packagesPath": "C:\\Users\\Baka\\.nuget\\packages\\",
-        "outputPath": "D:\\Repo\\Tour of Heroes\\Tour of Heroes API\\Tour of Heroes\\Tour of Heroes\\obj\\",
+        "outputPath": "C:\\Users\\Baka\\Source\\Repos\\DensetsuNoBaka\\Tour-of-Heroes-Encyclopedia\\Tour of Heroes API\\Tour of Heroes\\Tour of Heroes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Baka\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -38,9 +38,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "Microsoft.AspNet.WebApi.Cors": {
+            "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[5.2.7, )"
+              "version": "[12.0.3, )"
             },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",

@@ -1,6 +1,0 @@
-D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes DB\bin\Debug\Tour of Heroes DB.dacpac
-D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes DB\bin\Debug\Tour_of_Heroes_DB.dll
-D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes DB\bin\Debug\Tour_of_Heroes_DB.pdb
-D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes DB\obj\Debug\Tour of Heroes DB.sqlprojAssemblyReference.cache
-D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes DB\obj\Debug\Tour_of_Heroes_DB.dll
-D:\Repo\Tour of Heroes\Tour of Heroes API\Tour of Heroes\Tour of Heroes DB\obj\Debug\Tour_of_Heroes_DB.pdb
