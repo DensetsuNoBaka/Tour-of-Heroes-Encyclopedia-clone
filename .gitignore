@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Tour of Heroes API/Tour of Heroes/Tour of Heroes DB/bin/Debug/TourofHeroes.db.dacpac
+/Tour of Heroes API/Tour of Heroes/Tour of Heroes DB/obj/Debug/Model.xml
+/Tour of Heroes API/Tour of Heroes/Tour of Heroes DB/obj/Debug/TourofHeroes.db.sqlproj.FileListAbsolute.txt
+/Tour of Heroes API/Tour of Heroes/Tour of Heroes DB/obj/Debug/TourofHeroes.db.sqlprojAssemblyReference.cache
