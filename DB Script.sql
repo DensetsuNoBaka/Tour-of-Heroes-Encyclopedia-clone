@@ -68,11 +68,24 @@ CREATE PROCEDURE [Hero_Get]
 	@Picture_Url NVARCHAR(1000) = NULL
 AS
 BEGIN
-	SELECT * FROM [Hero]
-	WHERE ((@Hero_ID IS NULL) OR (@Hero_ID IS NOT NULL AND [Hero_ID] = @Hero_ID))
-	AND ((@Hero_Name IS NULL) OR (@Hero_Name IS NOT NULL AND [Hero_Name] = @Hero_Name))
-	AND ((@Power_Level IS NULL) OR (@Power_Level IS NOT NULL AND [Power_Level] = @Power_Level))
-	AND ((@Picture_Url IS NULL) OR (@Picture_Url IS NOT NULL AND [Picture_Url] = @Picture_Url));
+	IF @Hero_ID IS NOT NULL
+	BEGIN
+		SELECT * FROM [Hero]
+		WHERE ((@Hero_ID IN (NULL, 0)) OR (@Hero_ID IS NOT NULL AND [Hero_ID] = @Hero_ID))
+		AND ((@Hero_Name IS NULL) OR (@Hero_Name IS NOT NULL AND [Hero_Name] = @Hero_Name))
+		AND ((@Power_Level IS NULL) OR (@Power_Level IS NOT NULL AND [Power_Level] = @Power_Level))
+		AND ((@Picture_Url IS NULL) OR (@Picture_Url IS NOT NULL AND [Picture_Url] = @Picture_Url));
+	END
+	ELSE
+	BEGIN
+		SELECT
+			Hero_Id,
+			Hero_Name
+		FROM [Hero]
+		WHERE ((@Hero_Name IS NULL) OR (@Hero_Name IS NOT NULL AND [Hero_Name] = @Hero_Name))
+		AND ((@Power_Level IS NULL) OR (@Power_Level IS NOT NULL AND [Power_Level] = @Power_Level))
+		AND ((@Picture_Url IS NULL) OR (@Picture_Url IS NOT NULL AND [Picture_Url] = @Picture_Url));
+	END
 END
 GO
 

@@ -9,19 +9,39 @@ import {HeroService} from 'src/app/Heroes/hero.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
+  selectedHero: Hero;
+  selectedValue: number;
+  //pie: string;
+
   constructor(private heroService: HeroService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    //this.pie = "apple";
+    
     this.heroService
         .getHeroes()
         .subscribe(heroes => {
           this.heroes = heroes;
         });
+  }
 
+  onHeroSelect(e): void
+  {
+    console.log(e);
     this.heroService
-        .putHero()
+        .getHero(this.selectedValue)
         .subscribe(heroes => {
-          //this.heroes = heroes;
+          this.selectedHero = heroes[0];
+        });
+  }
+
+  onSaveClick(): void 
+  {
+    console.log(this.selectedHero);
+    this.heroService
+        .putHero(this.selectedHero)
+        .subscribe(heroes => {
           console.log("Success");
         });
   }

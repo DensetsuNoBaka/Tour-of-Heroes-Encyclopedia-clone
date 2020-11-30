@@ -44,13 +44,24 @@ namespace Tour_of_Heroes.Classes
                     {
                         while (dr.Read())
                         {
-                            heroes.Add(new Hero
+                            if(heroId != null && heroId != 0)
                             {
-                                heroId = dr.GetInt32(0),
-                                heroName = dr.GetString(1),
-                                powerLevel = dr.GetString(2),
-                                pictureUrl = dr.GetString(3)
-                            });
+                                heroes.Add(new Hero
+                                {
+                                    heroId = dr.GetInt32(0),
+                                    heroName = dr.GetString(1),
+                                    powerLevel = dr.GetString(2),
+                                    pictureUrl = dr.GetString(3)
+                                });
+                            } else
+                            {
+                                heroes.Add(new Hero
+                                {
+                                    heroId = dr.GetInt32(0),
+                                    heroName = dr.GetString(1)
+                                });
+                            }
+                            
                         }
                     }
                     else
@@ -139,7 +150,7 @@ namespace Tour_of_Heroes.Classes
                     cmd.Parameters.AddWithValue("@Hero_Name", modifiedRow.heroName);
                     cmd.Parameters.AddWithValue("@Power_Level", modifiedRow.powerLevel);
                     cmd.Parameters.AddWithValue("@Picture_Url", modifiedRow.pictureUrl);
-                    cmd.Parameters.AddWithValue("@Universe_ID", modifiedRow.universeId);
+                    //cmd.Parameters.AddWithValue("@Universe_ID", modifiedRow.universeId);
 
                     //open connection
                     conn.Open();

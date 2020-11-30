@@ -13,6 +13,7 @@ using Tour_of_Heroes.Entities;
 using Newtonsoft.Json;
 using Tour_of_Heroes.Interfaces;
 using Microsoft.Extensions.Configuration;
+using Tour_of_Heroes.Classes;
 
 namespace Tour_of_Heroes.Controllers
 {
@@ -41,7 +42,7 @@ namespace Tour_of_Heroes.Controllers
 
         [Route("Get")]
         //[EnableCors("AllPolicy")]
-        public JsonResult Get(int? heroId)
+        public JsonResult Get(int heroId)
         {
             string json = JsonConvert.SerializeObject(_heroHandler.Get(heroId));
             return new JsonResult(json);
@@ -53,17 +54,23 @@ namespace Tour_of_Heroes.Controllers
         {
             int heroId = 0;
 
-            if (hero.heroId == null) heroId = _heroHandler.Insert(hero);
+            if (hero.heroId == 0) heroId = _heroHandler.Insert(hero);
             else _heroHandler.Update(hero);
 
             return new JsonResult(JsonConvert.SerializeObject(heroId));
         }
 
         // GET: HeroesController/Delete/5
-        public ActionResult Delete(int heroId)
+        public JsonResult Delete(int heroId)
         {
             _heroHandler.Delete(heroId);
-            return View();
+            return new JsonResult(string.Empty);
+        }
+
+        [HttpOptions]
+        public JsonResult Options()
+        {
+            return new JsonResult(string.Empty);
         }
     }
 }

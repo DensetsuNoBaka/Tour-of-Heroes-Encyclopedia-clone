@@ -22,7 +22,20 @@ export class HeroService {
   {
     var opts = new HttpParams();
     var heroes = new Hero();
-    opts = opts.append("heroId", "2");
+
+    return this.http.get<Hero[]>(`${config.api_url}Heroes/Get`).pipe(map(data => {
+      let heroes: Hero[];
+      heroes = <Hero[]>JSON.parse(data.toString());
+
+      return heroes;
+    }));
+  }
+
+  getHero(heroId: number)
+  {
+    var opts = new HttpParams();
+    var heroes = new Hero();
+    opts = opts.append("heroId", `${heroId}`);
 
     return this.http.get<Hero[]>(`${config.api_url}Heroes/Get`, {params: opts}).pipe(map(data => {
       let heroes: Hero[];
@@ -32,7 +45,7 @@ export class HeroService {
     }));
   }
 
-  putHero()//: Observable<void>
+  putHero(hero: Hero)//: Observable<void>
   {
     var opts = new HttpParams()// { params: new HttpParams({fromString: "_heroID = 1"}) };
     
@@ -43,10 +56,12 @@ export class HeroService {
     hero.pictureUrl = "https://static.wikia.nocookie.net/bokunoheroacademia/images/c/cd/Toshinori_Yagi_Golden_Age_Hero_Costume_%28Anime%29.png/revision/latest?cb=20190129015644";
     var body = JSON.stringify(hero);
     */
-    let hero = { "heroName":"All Might", "powerLevel":"Mountain", "pictureUrl": "https://static.wikia.nocookie.net/bokunoheroacademia/images/c/cd/Toshinori_Yagi_Golden_Age_Hero_Costume_%28Anime%29.png/revision/latest?cb=20190129015644"}
+    //let hero = { "heroName":"All Might", "powerLevel":"Mountain", "pictureUrl": "https://static.wikia.nocookie.net/bokunoheroacademia/images/c/cd/Toshinori_Yagi_Golden_Age_Hero_Costume_%28Anime%29.png/revision/latest?cb=20190129015644"}
 
     //return this.http.get<string>(`${config.api_url}Heroes/Get`, {params: opts}).pipe(map(data => data));
-    return this.http.put(`${config.api_url}Heroes/Put`, hero).pipe(map(data => data));
+    //return this.http.put(`${config.api_url}Heroes/Put`, hero).pipe(map(data => data));
+    return this.http.put<Hero>(`${config.api_url}Heroes/Put`, hero)
+      .pipe(map(data => data));
   }
 
   /*AddEmployee(emp:employee)  

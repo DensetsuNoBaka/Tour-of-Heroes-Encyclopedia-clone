@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Tour_of_Heroes.Classes;
 
 namespace Tour_of_Heroes.Controllers
 {
@@ -34,6 +36,14 @@ namespace Tour_of_Heroes.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [Route("GetAssignment")]
+        public JsonResult GetAssignment(int heroId)
+        {
+            Assignment assignment = new Assignment();
+            string json = JsonConvert.SerializeObject(assignment.ConvertNumber(12345));
+            return new JsonResult(json);
         }
     }
 }
