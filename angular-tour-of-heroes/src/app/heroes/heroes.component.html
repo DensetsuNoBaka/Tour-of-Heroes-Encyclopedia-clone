@@ -8,8 +8,8 @@
 -->
 <select [(ngModel)]="selectedValue" name="hero" (change)="onHeroSelect($event)">
     <option value="" selected></option>
-    <option *ngFor="let hero of heroes" [value]="hero.heroId">
-      {{hero.heroName}}
+    <option *ngFor="let hero of heroes" [value]="hero.value">
+      {{hero.name}}
     </option>
   </select>
 

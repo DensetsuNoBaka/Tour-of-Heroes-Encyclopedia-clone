@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 
 import config from 'config.json';
 import {Hero} from 'src/app/Entities/hero';
+import {ListItem} from 'src/app/Entities/listitem';
 import { JsonPipe } from '@angular/common';
 
 @Injectable({
@@ -23,12 +24,21 @@ export class HeroService {
     var opts = new HttpParams();
     var heroes = new Hero();
 
-    return this.http.get<Hero[]>(`${config.api_url}Heroes/Get`).pipe(map(data => {
+    return this.http.get<ListItem[]>(`${config.api_url}Heroes/List`).pipe(map(data => {
+      let heroes: ListItem[];
+      heroes = <ListItem[]>JSON.parse(data.toString());
+
+      //console.log(data.);
+
+      return heroes;
+    }));
+
+    /*return this.http.get<Hero[]>(`${config.api_url}Heroes/Get`).pipe(map(data => {
       let heroes: Hero[];
       heroes = <Hero[]>JSON.parse(data.toString());
 
       return heroes;
-    }));
+    }));*/
   }
 
   getHero(heroId: number)

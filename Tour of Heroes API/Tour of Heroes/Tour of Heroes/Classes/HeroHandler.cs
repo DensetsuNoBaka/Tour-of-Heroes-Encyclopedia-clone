@@ -19,6 +19,59 @@ namespace Tour_of_Heroes.Classes
             connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString;
         }
 
+        public List<ListItem> List()
+        {
+            List<ListItem> heroes = new List<ListItem>();
+
+            string json = string.Empty;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("Hero_Get", conn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    //open connection
+                    conn.Open();
+
+                    //execute the SQLCommand
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            heroes.Add(new ListItem
+                            {
+                                name = dr.GetString(1),
+                                value = dr.GetInt32(0)
+                            });
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No data found.");
+                    }
+
+                    //close data reader
+                    dr.Close();
+
+                    //close connection
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                //display error message
+                Console.WriteLine("Exception: " + ex.Message);
+                throw ex;
+            }
+
+            return heroes;
+        }
+
         public List<Hero> Get(int? heroId)
         {
             List<Hero> heroes = new List<Hero>();
@@ -44,24 +97,13 @@ namespace Tour_of_Heroes.Classes
                     {
                         while (dr.Read())
                         {
-                            if(heroId != null && heroId != 0)
+                            heroes.Add(new Hero
                             {
-                                heroes.Add(new Hero
-                                {
-                                    heroId = dr.GetInt32(0),
-                                    heroName = dr.GetString(1),
-                                    powerLevel = dr.GetString(2),
-                                    pictureUrl = dr.GetString(3)
-                                });
-                            } else
-                            {
-                                heroes.Add(new Hero
-                                {
-                                    heroId = dr.GetInt32(0),
-                                    heroName = dr.GetString(1)
-                                });
-                            }
-                            
+                                heroId = dr.GetInt32(0),
+                                heroName = dr.GetString(1),
+                                powerLevel = dr.GetString(2),
+                                pictureUrl = dr.GetString(3)
+                            });
                         }
                     }
                     else

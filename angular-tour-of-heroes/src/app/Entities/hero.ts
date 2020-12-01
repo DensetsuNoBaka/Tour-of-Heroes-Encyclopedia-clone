@@ -3,11 +3,7 @@ export class Hero {
     heroName: string;
     powerLevel: string;
     pictureUrl: string;
-  }
-
-  export class HeroShort {
-      heroId: number;
-      heroName: string;
+    universeId: number;
   }
 
   export interface Heroes {

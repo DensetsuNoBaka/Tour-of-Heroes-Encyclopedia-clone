@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Hero} from 'src/app/Entities/hero';
+import {ListItem} from 'src/app/Entities/listitem';
 import {HeroService} from 'src/app/Heroes/hero.service';
 
 @Component({
@@ -8,7 +9,7 @@ import {HeroService} from 'src/app/Heroes/hero.service';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-  heroes: Hero[];
+  heroes: ListItem[];
   selectedHero: Hero;
   selectedValue: number;
   //pie: string;

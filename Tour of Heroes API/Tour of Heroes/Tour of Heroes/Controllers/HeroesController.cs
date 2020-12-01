@@ -40,6 +40,14 @@ namespace Tour_of_Heroes.Controllers
             return View();
         }
 
+        [Route("List")]
+        //[EnableCors("AllPolicy")]
+        public JsonResult List()
+        {
+            string json = JsonConvert.SerializeObject(_heroHandler.List());
+            return new JsonResult(json);
+        }
+
         [Route("Get")]
         //[EnableCors("AllPolicy")]
         public JsonResult Get(int heroId)
@@ -50,6 +58,7 @@ namespace Tour_of_Heroes.Controllers
 
         [Route("Put")]
         [HttpPut]
+        //[EnableCors("AllPolicy")]
         public JsonResult Put(Hero hero)
         {
             int heroId = 0;
@@ -61,6 +70,8 @@ namespace Tour_of_Heroes.Controllers
         }
 
         // GET: HeroesController/Delete/5
+        [Route("Delete")]
+        //[EnableCors("AllPolicy")]
         public JsonResult Delete(int heroId)
         {
             _heroHandler.Delete(heroId);
