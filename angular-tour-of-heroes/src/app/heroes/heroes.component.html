@@ -1,22 +1,8 @@
-<!--
-<h2>My Heroes</h2>
-<ul>
-    <li *ngFor="let hero of heroes">
-        <span class="badge">{{hero.heroId}}</span> {{hero.heroName}}
-    </li>
-</ul>
--->
 <select [(ngModel)]="selectedValue" name="hero" (change)="onHeroSelect($event)">
-    <option value="" selected></option>
-    <option *ngFor="let hero of heroes" [value]="hero.value">
-      {{hero.name}}
-    </option>
-  </select>
+  <option value="" selected></option>
+  <option *ngFor="let hero of heroes" [value]="hero.value">
+    {{hero.name}}
+  </option>
+</select>
 
-<div *ngIf="selectedHero">
-    <h2>{{selectedHero.heroName | uppercase}}</h2>
-    <div>Power level: <input [(ngModel)]="selectedHero.powerLevel" placeholder="Over 9000"/></div>
-    <img src={{selectedHero.pictureUrl}}>
-    <div>Image  url: <input [(ngModel)]="selectedHero.pictureUrl" placeholder="Over 9000"/></div>
-    <button type="button" (click)="onSaveClick()">Save</button>
-</div>
+<app-hero-detail [(selectedHero)]="selectedHero"></app-hero-detail>

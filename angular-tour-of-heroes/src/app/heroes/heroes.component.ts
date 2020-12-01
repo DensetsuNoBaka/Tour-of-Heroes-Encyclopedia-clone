@@ -36,15 +36,4 @@ export class HeroesComponent implements OnInit {
           this.selectedHero = heroes[0];
         });
   }
-
-  onSaveClick(): void 
-  {
-    console.log(this.selectedHero);
-    this.heroService
-        .putHero(this.selectedHero)
-        .subscribe(heroes => {
-          console.log("Success");
-        });
-  }
-
 }

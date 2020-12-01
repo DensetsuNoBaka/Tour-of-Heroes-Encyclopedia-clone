@@ -1,0 +1,7 @@
+<div *ngIf="selectedHero">
+    <h2>{{selectedHero.heroName | uppercase}}</h2>
+    <div>Power level: <input [(ngModel)]="selectedHero.powerLevel" placeholder="Over 9000"/></div>
+    <img src={{selectedHero.pictureUrl}}>
+    <div>Image  url: <input [(ngModel)]="selectedHero.pictureUrl" placeholder="Over 9000"/></div>
+    <button type="button" (click)="onSaveClick()">Save</button>
+</div>
