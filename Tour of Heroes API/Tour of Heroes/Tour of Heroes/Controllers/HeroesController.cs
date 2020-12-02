@@ -42,9 +42,9 @@ namespace Tour_of_Heroes.Controllers
 
         [Route("List")]
         //[EnableCors("AllPolicy")]
-        public JsonResult List()
+        public JsonResult List(int? universeId)
         {
-            string json = JsonConvert.SerializeObject(_heroHandler.List());
+            string json = JsonConvert.SerializeObject(_heroHandler.List(universeId));
             return new JsonResult(json);
         }
 

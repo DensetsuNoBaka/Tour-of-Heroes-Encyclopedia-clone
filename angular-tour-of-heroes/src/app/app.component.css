@@ -24,3 +24,8 @@ h1 {
   img {
     width: 300px
   }
+
+  .topNavigation {
+    display: inline-block;
+    margin: 2em;
+  }

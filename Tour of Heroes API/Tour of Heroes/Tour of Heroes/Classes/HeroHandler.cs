@@ -21,6 +21,11 @@ namespace Tour_of_Heroes.Classes
 
         public List<ListItem> List()
         {
+            return new List<ListItem>();
+        }
+
+        public List<ListItem> List(int? universeId)
+        {
             List<ListItem> heroes = new List<ListItem>();
 
             string json = string.Empty;
@@ -30,6 +35,8 @@ namespace Tour_of_Heroes.Classes
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("Hero_Get", conn);
+                    cmd.Parameters.AddWithValue("@Universe_ID", universeId);
+
 
                     cmd.CommandType = CommandType.StoredProcedure;
 

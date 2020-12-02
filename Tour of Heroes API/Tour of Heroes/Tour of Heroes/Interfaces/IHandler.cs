@@ -9,7 +9,7 @@ namespace Tour_of_Heroes.Interfaces
 {
     public interface IHandler<T>
     {
-        List<ListItem> List();
+        List<ListItem> List(int? id);
         List<T> Get(int? heroId);
         int Insert(T newRow);
         void Update(T modifiedRow);

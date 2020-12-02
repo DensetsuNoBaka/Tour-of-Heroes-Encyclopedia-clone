@@ -1,8 +1,15 @@
-<select [(ngModel)]="selectedValue" name="hero" (change)="onHeroSelect($event)">
-  <option value="" selected></option>
-  <option *ngFor="let hero of heroes" [value]="hero.value">
-    {{hero.name}}
-  </option>
-</select>
+<div class="selection">Universe: 
+  <select [(ngModel)]="selectedValue" name="hero">
+    <option value="0" selected></option>
+  </select>
+</div>
+<div class="selection">Hero: 
+  <select [(ngModel)]="selectedValue" name="hero" (change)="onHeroSelect($event)">
+    <option value="0" selected></option>
+    <option *ngFor="let hero of heroes" [value]="hero.value">
+      {{hero.name}}
+    </option>
+  </select>
+</div>
 
 <app-hero-detail [(selectedHero)]="selectedHero"></app-hero-detail>

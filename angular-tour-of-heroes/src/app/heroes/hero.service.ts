@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http'; 
 
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import config from 'config.json';
@@ -28,8 +28,6 @@ export class HeroService {
       let heroes: ListItem[];
       heroes = <ListItem[]>JSON.parse(data.toString());
 
-      //console.log(data.);
-
       return heroes;
     }));
 
@@ -50,7 +48,6 @@ export class HeroService {
     return this.http.get<Hero[]>(`${config.api_url}Heroes/Get`, {params: opts}).pipe(map(data => {
       let heroes: Hero[];
       heroes = <Hero[]>JSON.parse(data.toString());
-      console.log(heroes);
       return heroes;
     }));
   }

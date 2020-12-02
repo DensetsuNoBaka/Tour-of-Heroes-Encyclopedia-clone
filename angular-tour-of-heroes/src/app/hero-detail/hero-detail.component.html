@@ -1,8 +1,10 @@
-<div *ngIf="selectedHero" [ngStyle]="{backgroundImage:'url('+selectedHero.universe.logoUrl+')'}">
-    <h2>{{selectedHero.heroName | uppercase}}</h2>
-    <h3>{{selectedHero.universe.universeName}}</h3>
-    <div>Power level: <input [(ngModel)]="selectedHero.powerLevel" placeholder="Over 9000"/></div>
-    <img class="profilePic" src={{selectedHero.pictureUrl}}>
-    <div>Image  url: <input [(ngModel)]="selectedHero.pictureUrl" placeholder="Over 9000"/></div>
-    <button type="button" (click)="onSaveClick()">Save</button>
-</div>
+<body>
+    <div *ngIf="selectedHero" [ngStyle]="{backgroundImage:'url('+selectedHero.universe.logoUrl+')'}">
+        <h2>{{selectedHero.heroName | uppercase}}</h2>
+        <h3>{{selectedHero.universe.universeName}}</h3>
+        <div>Power level: <input [(ngModel)]="selectedHero.powerLevel" placeholder="Over 9000"/></div>
+        <div><img class="profilePic" src={{selectedHero.pictureUrl}}></div>
+        <div>Image  url: <input [(ngModel)]="selectedHero.pictureUrl" placeholder="Over 9000"/></div>
+        <button type="button" (click)="onSaveClick()">Save</button>
+    </div>
+</body>

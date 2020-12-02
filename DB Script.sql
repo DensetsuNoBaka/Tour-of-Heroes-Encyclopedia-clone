@@ -66,16 +66,14 @@ CREATE PROCEDURE [Hero_Get]
 	@Hero_ID INT = NULL,
 	@Hero_Name NVARCHAR(50) = NULL,
 	@Power_Level NVARCHAR(100) = NULL,
-	@Picture_Url NVARCHAR(1000) = NULL
+	@Picture_Url NVARCHAR(1000) = NULL,
+	@Universe_ID INT = NULL
 AS
 BEGIN
 	IF @Hero_ID IS NOT NULL
 	BEGIN
 		SELECT * FROM [Hero]
-		WHERE ((@Hero_ID IN (NULL, 0)) OR (@Hero_ID IS NOT NULL AND [Hero_ID] = @Hero_ID))
-		AND ((@Hero_Name IS NULL) OR (@Hero_Name IS NOT NULL AND [Hero_Name] = @Hero_Name))
-		AND ((@Power_Level IS NULL) OR (@Power_Level IS NOT NULL AND [Power_Level] = @Power_Level))
-		AND ((@Picture_Url IS NULL) OR (@Picture_Url IS NOT NULL AND [Picture_Url] = @Picture_Url));
+		WHERE [Hero_ID] = @Hero_ID;
 	END
 	ELSE
 	BEGIN
@@ -85,7 +83,8 @@ BEGIN
 		FROM [Hero]
 		WHERE ((@Hero_Name IS NULL) OR (@Hero_Name IS NOT NULL AND [Hero_Name] = @Hero_Name))
 		AND ((@Power_Level IS NULL) OR (@Power_Level IS NOT NULL AND [Power_Level] = @Power_Level))
-		AND ((@Picture_Url IS NULL) OR (@Picture_Url IS NOT NULL AND [Picture_Url] = @Picture_Url));
+		AND ((@Picture_Url IS NULL) OR (@Picture_Url IS NOT NULL AND [Picture_Url] = @Picture_Url))
+		AND ((@Universe_ID IS NULL OR @Universe_ID = 0) OR (@Universe_ID IS NOT NULL AND [Universe_ID] = @Universe_ID));
 	END
 END
 GO
