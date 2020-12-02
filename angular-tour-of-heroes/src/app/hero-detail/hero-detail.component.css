@@ -1,6 +1,12 @@
-img
+.profilePic
 {
     height: 600px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.background{
+    background-size:cover;
+    width:auto;
+    background-position:50% 50%;
 }

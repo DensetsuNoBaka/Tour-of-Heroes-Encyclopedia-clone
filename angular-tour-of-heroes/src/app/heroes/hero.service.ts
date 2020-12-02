@@ -50,7 +50,7 @@ export class HeroService {
     return this.http.get<Hero[]>(`${config.api_url}Heroes/Get`, {params: opts}).pipe(map(data => {
       let heroes: Hero[];
       heroes = <Hero[]>JSON.parse(data.toString());
-
+      console.log(heroes);
       return heroes;
     }));
   }

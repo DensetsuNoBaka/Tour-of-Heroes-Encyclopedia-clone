@@ -11,6 +11,6 @@ namespace Tour_of_Heroes.Entities
         public string heroName { get; set; }
         public string powerLevel { get; set; }
         public string pictureUrl { get; set; }
-        public int universeId { get; set; }
+        public Universe universe { get; set; }
     }
 }

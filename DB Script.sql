@@ -24,7 +24,8 @@ GO
 
 CREATE TABLE [Universe] (
 	[Universe_ID] INT PRIMARY KEY IDENTITY (1, 1) NOT NULL,
-	[Universe_Name] NVARCHAR(250) NOT NULL
+	[Universe_Name] NVARCHAR(250) NOT NULL,
+	[Logo_Url] NVARCHAR(MAX) NULL
 );
 GO
 
@@ -202,7 +203,8 @@ GO
 
 CREATE PROCEDURE [Universe_Put] 
 	@Universe_ID INT = NULL OUTPUT,
-	@Universe_Name NVARCHAR(250) = NULL
+	@Universe_Name NVARCHAR(250) = NULL,
+	@Logo_Url NVARCHAR(MAX) = NULL
 AS
 BEGIN
 	IF @Universe_ID IS NULL
@@ -210,8 +212,8 @@ BEGIN
 		IF @Universe_Name IS NULL
 			RAISERROR ('Universe name can not be null when creating a new Universe', 0, 0);
 			
-		INSERT INTO [Universe] (Universe_Name) VALUES (
-			@Universe_Name
+		INSERT INTO [Universe] (Universe_Name, Logo_Url) VALUES (
+			@Universe_Name, @Logo_Url
 		);
 
 		SET @Universe_ID = SCOPE_IDENTITY();
@@ -219,7 +221,8 @@ BEGIN
 	ELSE
 	BEGIN
 		UPDATE [Universe] SET
-			Universe_Name = CASE WHEN (@Universe_Name IS NOT NULL) THEN @Universe_Name ELSE Universe_Name END
+			Universe_Name = CASE WHEN (@Universe_Name IS NOT NULL) THEN @Universe_Name ELSE Universe_Name END,
+			Logo_Url = CASE WHEN (@Logo_Url IS NOT NULL) THEN @Logo_Url ELSE Logo_Url END
 			WHERE [Universe_ID] = @Universe_ID;
 	END
 	
@@ -246,7 +249,8 @@ EXEC [Power_Put]
 
 EXEC [Universe_Put]
 	@Universe_ID = @Universe_ID OUTPUT,
-	@Universe_Name = 'A Certain Magical Index';
+	@Universe_Name = 'A Certain Magical Index',
+	@Logo_Url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/To_aru_majutsu_no_index_logo.svg/800px-To_aru_majutsu_no_index_logo.svg.png';
 
 EXEC [Hero_Put] 
 	@Hero_ID = @Hero_ID OUTPUT,
@@ -280,7 +284,8 @@ EXEC [Power_Put]
 
 EXEC [Universe_Put]
 	@Universe_ID = @Universe_ID OUTPUT,
-	@Universe_Name = 'My Hero Academia';
+	@Universe_Name = 'My Hero Academia',
+	@Logo_Url = 'https://i.pinimg.com/originals/4c/67/51/4c67516ab6bf8f6ebda56b8bfb064d41.png';
 
 EXEC [Hero_Put] 
 	@Hero_ID = @Hero_ID OUTPUT,

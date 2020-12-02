@@ -75,6 +75,7 @@ namespace Tour_of_Heroes.Classes
         public List<Hero> Get(int? heroId)
         {
             List<Hero> heroes = new List<Hero>();
+            int universeId = 0;
 
             string json = string.Empty;
 
@@ -104,6 +105,40 @@ namespace Tour_of_Heroes.Classes
                                 powerLevel = dr.GetString(2),
                                 pictureUrl = dr.GetString(3)
                             });
+
+                            universeId = dr.GetInt32(4);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No data found.");
+                    }
+
+                    //close data reader
+                    dr.Close();
+
+                    //close connection
+                    conn.Close();
+
+                    cmd = new SqlCommand("Universe_Get", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Universe_ID", universeId);
+
+                    //open connection
+                    conn.Open();
+
+                    //execute the SQLCommand
+                    dr = cmd.ExecuteReader();
+
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            heroes[0].universe = new Universe{
+                                universeId = dr.GetInt32(0),
+                                universeName = dr.GetString(1),
+                                logoUrl = dr.GetString(2)
+                            };
                         }
                     }
                     else
@@ -142,7 +177,7 @@ namespace Tour_of_Heroes.Classes
                     cmd.Parameters.AddWithValue("@Hero_Name", newRow.heroName);
                     cmd.Parameters.AddWithValue("@Power_Level", newRow.powerLevel);
                     cmd.Parameters.AddWithValue("@Picture_Url", newRow.pictureUrl);
-                    cmd.Parameters.AddWithValue("@Universe_ID", newRow.universeId);
+                    cmd.Parameters.AddWithValue("@Universe_ID", newRow.universe.universeId);
 
                     //open connection
                     conn.Open();
