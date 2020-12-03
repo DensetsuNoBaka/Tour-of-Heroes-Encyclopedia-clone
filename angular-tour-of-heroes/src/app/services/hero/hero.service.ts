@@ -19,12 +19,13 @@ export class HeroService {
 
   }
 
-  getHeroes()
+  getHeroes(universeId: number)
   {
     var opts = new HttpParams();
     var heroes = new Hero();
+    if(universeId != 0) { opts = opts.append("universeId", `${universeId}`); }
 
-    return this.http.get<ListItem[]>(`${config.api_url}Heroes/List`).pipe(map(data => {
+    return this.http.get<ListItem[]>(`${config.api_url}Heroes/List`, {params: opts}).pipe(map(data => {
       let heroes: ListItem[];
       heroes = <ListItem[]>JSON.parse(data.toString());
 

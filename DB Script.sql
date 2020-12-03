@@ -195,7 +195,7 @@ CREATE PROCEDURE [Universe_Get]
 AS
 BEGIN
 	SELECT * FROM [Universe]
-	WHERE ((@Universe_ID IS NULL) OR (@Universe_ID IS NOT NULL AND [Universe_ID] = @Universe_ID))
+	WHERE ((@Universe_ID IS NULL OR @Universe_ID = 0) OR (@Universe_ID IS NOT NULL AND [Universe_ID] = @Universe_ID))
 	AND ((@Universe_Name IS NULL) OR (@Universe_Name IS NOT NULL AND [Universe_Name] = @Universe_Name))
 END
 GO

@@ -48,6 +48,7 @@ namespace Tour_of_Heroes
         {
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddScoped<IHandler<Hero>, HeroHandler>();
+            services.AddScoped<IHandler<Universe>, UniverseHandler>();
             return services;
         }
 

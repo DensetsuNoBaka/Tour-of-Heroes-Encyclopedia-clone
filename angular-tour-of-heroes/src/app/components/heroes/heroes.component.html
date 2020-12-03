@@ -1,0 +1,18 @@
+<div class="selection">Universe: 
+  <select [(ngModel)]="selectedUniverseId" name="universe" (change)="onUniverseSelect($event)">
+    <option value="0" selected></option>
+    <option *ngFor="let universe of universes" [value]="universe.value">
+      {{universe.name}}
+    </option>
+  </select>
+</div>
+<div class="selection">Hero: 
+  <select [(ngModel)]="selectedHeroId" name="hero" (change)="onHeroSelect($event)">
+    <option value="0" selected></option>
+    <option *ngFor="let hero of getHeroesList()" [value]="hero.value">
+      {{hero.name}}
+    </option>
+  </select>
+</div>
+
+<app-hero-detail [(selectedHero)]="selectedHero"></app-hero-detail>
