@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Hero} from 'src/app/Entities/hero';
-import {HeroService} from 'src/app/Heroes/hero.service';
+import {HeroService} from 'src/app/services/hero/hero.service';
 //import {ROOT_URL} from 'config';
 
 @Component({
