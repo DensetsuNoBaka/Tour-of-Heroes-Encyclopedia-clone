@@ -45,5 +45,12 @@ namespace Tour_of_Heroes.Controllers
             string json = JsonConvert.SerializeObject(assignment.ConvertNumber(12345));
             return new JsonResult(json);
         }
+
+        [Route("WrathTest/{tests}")]
+        public string WrathTest(int tests)
+        {
+            Assignment assignment = new Assignment();
+            return assignment.WrathTest(tests);
+        }
     }
 }
