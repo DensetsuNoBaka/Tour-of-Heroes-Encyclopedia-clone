@@ -237,6 +237,67 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE [Hero_Bios_Get]
+	@Hero_ID INT
+AS
+BEGIN
+	SELECT 
+		[Hero_Bio_ID],
+		[Order],
+		[Header],
+		[Hero_Bio]
+	FROM [Hero_Bios] WHERE [Hero_ID] = @Hero_Id
+	ORDER BY [Order] ASC
+END
+GO
+
+CREATE PROCEDURE [Hero_Bios_Put]
+	@Hero_Bio_ID INT = NULL OUTPUT,
+	@Hero_ID INT = NULL,
+	@Order INT = NULL,
+	@Hero_Bio VARCHAR(MAX) = NULL,
+	@Header NVARCHAR(25) = NULL
+AS
+BEGIN
+	IF @Hero_Bio_ID IS NULL
+	BEGIN
+		IF @Hero_ID IS NULL
+			RAISERROR ('All bio entries must be assigned to a hero', 0, 0);
+
+		IF @Order IS NULL
+			SET @Order = 1;
+
+		IF @Header IS NULL
+			SET @Header = 'Bio';
+
+		IF @Hero_Bio IS NULL
+			RAISERROR ('All bio entries must be filled out', 0, 0);
+			
+		INSERT INTO [Hero_Bios] ([Hero_Bio], [Hero_ID], [Order], [Header]) VALUES (
+			@Hero_Bio, @Hero_ID, @Order, @Header
+		);
+
+		SET @Hero_Bio_ID = SCOPE_IDENTITY();
+	END
+	ELSE
+	BEGIN
+		UPDATE [Hero_Bios] SET
+			[Hero_Bio] = CASE WHEN (@Hero_Bio IS NOT NULL) THEN @Hero_Bio ELSE [Hero_Bio] END,
+			[Order] = CASE WHEN (@Order IS NOT NULL) THEN @Order ELSE [Order] END,
+			[Header] = CASE WHEN (@Header IS NOT NULL) THEN @Header ELSE [Header] END
+			WHERE [Hero_Bio_ID] = @Hero_Bio_ID;
+	END
+END
+GO
+
+CREATE PROCEDURE [Hero_Bios_Del]
+	@Hero_Bio_ID INT OUTPUT
+AS
+BEGIN
+	DELETE FROM [Hero_Bios] WHERE [Hero_Bio_ID] = @Hero_Bio_ID;
+END
+GO
+
 DECLARE @Hero_ID INT;
 DECLARE @Power_ID INT;
 DECLARE @Universe_ID INT;
@@ -263,13 +324,11 @@ INSERT INTO [Hero_Power_Association] ([Hero_ID], [Power_ID]) VALUES (
 	@Power_ID
 );
 
-INSERT INTO [Hero_Bios]
-	([Hero_Bio], [Hero_ID], [Order], [Header]) VALUES (
-	'The third strongest level 5 esper of Academy City. Mikoto is a powerful electromaster capable of launching large metallic objects at supersonic speed with electromagnetism, calling bolts of lightning, and manipulating electronics through electrical signals.',
-	@Hero_ID,
-	1,
-	'Bio'
-);
+EXEC [Hero_Bios_Put]
+	@Hero_ID = @Hero_ID,
+	@Order = 1,
+	@Header = 'Bio',
+	@Hero_Bio = 'The third strongest level 5 esper of Academy City. Mikoto is a powerful electromaster capable of launching large metallic objects at supersonic speed with electromagnetism, calling bolts of lightning, and manipulating electronics through electrical signals.'
 GO
 
 DECLARE @Hero_ID INT;
@@ -298,10 +357,9 @@ INSERT INTO [Hero_Power_Association] ([Hero_ID], [Power_ID]) VALUES (
 	@Power_ID
 );
 
-INSERT INTO [Hero_Bios]
-	([Hero_Bio], [Hero_ID], [Order], [Header]) VALUES (
-	'Also known as Deku. Though born Quirkless, Izuku manages to catch the attention of the legendary hero All Might due to his innate heroism and a strong sense of justice and has since become his close pupil as well as a student in Class 1-A at U.A. High School. All Might passed on his Quirk to Izuku, making him the ninth holder of One For All.',
-	@Hero_ID,
-	1,
-	'Bio'
-);
+EXEC [Hero_Bios_Put]
+	@Hero_ID = @Hero_ID,
+	@Order = 1,
+	@Header = 'Bio',
+	@Hero_Bio = 'Also known as Deku. Though born Quirkless, Izuku manages to catch the attention of the legendary hero All Might due to his innate heroism and a strong sense of justice and has since become his close pupil as well as a student in Class 1-A at U.A. High School. All Might passed on his Quirk to Izuku, making him the ninth holder of One For All.'
+GO

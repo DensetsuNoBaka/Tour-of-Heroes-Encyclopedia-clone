@@ -83,6 +83,7 @@ export class HeroesComponent implements OnInit {
         .getHero(this.selectedHeroId)
         .subscribe(heroes => {
           this.selectedHero = heroes[0];
+          console.log(this.selectedHero);
         });
     } else
     {

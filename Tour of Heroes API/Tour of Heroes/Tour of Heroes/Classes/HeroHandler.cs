@@ -158,6 +158,42 @@ namespace Tour_of_Heroes.Classes
 
                     //close connection
                     conn.Close();
+
+                    cmd = new SqlCommand("Hero_Bios_Get", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Hero_ID", heroId);
+
+                    //open connection
+                    conn.Open();
+
+                    //execute the SQLCommand
+                    dr = cmd.ExecuteReader();
+
+                    if (dr.HasRows)
+                    {
+                        heroes[0].heroBio = new List<HeroBio>();
+
+                        while (dr.Read())
+                        {
+                            heroes[0].heroBio.Add(new HeroBio
+                            {
+                                heroBioId = dr.GetInt32(0),
+                                order = dr.GetInt32(1),
+                                header = dr.GetString(2),
+                                heroBio = dr.GetString(3)
+                            });
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No data found.");
+                    }
+
+                    //close data reader
+                    dr.Close();
+
+                    //close connection
+                    conn.Close();
                 }
             }
             catch (Exception ex)

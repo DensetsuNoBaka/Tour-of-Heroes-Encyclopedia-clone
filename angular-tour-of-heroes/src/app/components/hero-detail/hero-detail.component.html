@@ -4,6 +4,10 @@
         <h3>{{selectedHero.universe.universeName}}</h3>
         <div>Power level: <input [(ngModel)]="selectedHero.powerLevel" placeholder="Over 9000"/></div>
         <div><img class="profilePic" src={{selectedHero.pictureUrl}}></div>
+        <div *ngFor="let bio of selectedHero.heroBio">
+            <h2>{{bio.header}}</h2>
+            <div>{{bio.heroBio}}</div>
+        </div>
         <div>Image  url: <input [(ngModel)]="selectedHero.pictureUrl" placeholder="Over 9000"/></div>
         <button type="button" (click)="onSaveClick()">Save</button>
     </div>
