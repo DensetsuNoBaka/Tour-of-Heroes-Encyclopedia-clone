@@ -87,8 +87,13 @@ namespace Tour_of_Heroes.Classes
                     SqlCommand cmd = new SqlCommand("Universe_put", conn);
 
                     cmd.CommandType = CommandType.StoredProcedure;
+
                     cmd.Parameters.AddWithValue("@Universe_Name", newRow.universeName);
                     cmd.Parameters.AddWithValue("@Logo_Url", newRow.logoUrl);
+
+                    SqlParameter outputParam = new SqlParameter("@Universe_ID", SqlDbType.Int);
+                    outputParam.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(outputParam);
 
                     //open connection
                     conn.Open();
@@ -110,6 +115,8 @@ namespace Tour_of_Heroes.Classes
 
                     //close data reader
                     dr.Close();
+
+                    newId = (int)outputParam.Value;
 
                     //close connection
                     conn.Close();
