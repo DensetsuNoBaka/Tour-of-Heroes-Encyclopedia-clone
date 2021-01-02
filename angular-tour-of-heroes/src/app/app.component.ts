@@ -15,7 +15,7 @@ export class AppComponent {
   name: string;
 
   constructor() {
-    //console.log(heroService.getHeroes());
+    
   }
 
   ngOnInit() {

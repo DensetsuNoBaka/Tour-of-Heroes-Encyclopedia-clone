@@ -29,12 +29,11 @@ export class UniverseService {
 
       return universes;
     }));
+  }
 
-    /*return this.http.get<Hero[]>(`${config.api_url}Heroes/Get`).pipe(map(data => {
-      let heroes: Hero[];
-      heroes = <Hero[]>JSON.parse(data.toString());
-
-      return heroes;
-    }));*/
+  putUniverse(universe: Universe)//: Observable<void>
+  {
+    return this.http.put<number>(`${config.api_url}Universe/Put`, universe)
+      .pipe(map(data => data));
   }
 }

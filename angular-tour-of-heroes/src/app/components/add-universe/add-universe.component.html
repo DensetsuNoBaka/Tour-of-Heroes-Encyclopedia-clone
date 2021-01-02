@@ -1,0 +1,18 @@
+<div id="modal-content-wrapper">
+    <header id="modal-header">
+        <h1 id="modal-title">Add Universe</h1>
+    </header>
+    <section id="modal-body">
+        <p>Add a new Universe</p>
+        <div>Universe Title: <input [(ngModel)]="newUniverse.universeName" placeholder="Title"/></div>
+        <div>Universe Logo Url: <input [(ngModel)]="newUniverse.logoUrl" placeholder="http://url.com"/></div>
+    </section>
+    <footer id="modal-footer">
+        <button mat-raised-button id="modal-action-button" (click)="saveFunction()">
+            Save
+        </button>
+        <button mat-raised-button id="modal-cancel-button" (click)="closeModal()">
+            Go back
+        </button>
+    </footer>
+</div>

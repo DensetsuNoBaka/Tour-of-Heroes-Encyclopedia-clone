@@ -206,7 +206,7 @@ CREATE PROCEDURE [Universe_Put]
 	@Logo_Url NVARCHAR(MAX) = NULL
 AS
 BEGIN
-	IF @Universe_ID IS NULL
+	IF @Universe_ID IS NULL OR @Universe_ID = 0
 	BEGIN
 		IF @Universe_Name IS NULL
 			RAISERROR ('Universe name can not be null when creating a new Universe', 0, 0);

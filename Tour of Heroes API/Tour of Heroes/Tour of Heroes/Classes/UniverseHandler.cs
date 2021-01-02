@@ -78,7 +78,51 @@ namespace Tour_of_Heroes.Classes
         }
         public int Insert(Universe newRow)
         {
-            return 0;
+            int newId = 0;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("Universe_put", conn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Universe_Name", newRow.universeName);
+                    cmd.Parameters.AddWithValue("@Logo_Url", newRow.logoUrl);
+
+                    //open connection
+                    conn.Open();
+
+                    //execute the SQLCommand
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            newId = dr.GetInt32(0);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No data found.");
+                    }
+
+                    //close data reader
+                    dr.Close();
+
+                    //close connection
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                //display error message
+                Console.WriteLine("Exception: " + ex.Message);
+                throw ex;
+            }
+
+            return newId;
         }
         public void Update(Universe modifiedRow)
         {

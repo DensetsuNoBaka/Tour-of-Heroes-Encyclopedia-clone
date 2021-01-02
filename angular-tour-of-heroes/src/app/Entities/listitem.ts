@@ -1,4 +1,4 @@
 export class ListItem {
-    Name: string;
-    Value: number;
+    name: string;
+    value: number;
 }
