@@ -79,9 +79,9 @@ namespace Tour_of_Heroes.Classes
             return heroes;
         }
 
-        public List<Hero> Get(int? heroId)
+        public Hero Get(int heroId)
         {
-            List<Hero> heroes = new List<Hero>();
+            Hero hero = new Hero();
             int universeId = 0;
 
             string json = string.Empty;
@@ -105,13 +105,10 @@ namespace Tour_of_Heroes.Classes
                     {
                         while (dr.Read())
                         {
-                            heroes.Add(new Hero
-                            {
-                                heroId = dr.GetInt32(0),
-                                heroName = dr.GetString(1),
-                                powerLevel = dr.GetString(2),
-                                pictureUrl = dr.GetString(3)
-                            });
+                            hero.heroId = dr.GetInt32(0);
+                            hero.heroName = dr.GetString(1);
+                            hero.powerLevel = dr.GetString(2);
+                            hero.pictureUrl = dr.GetString(3);
 
                             universeId = dr.GetInt32(4);
                         }
@@ -141,7 +138,7 @@ namespace Tour_of_Heroes.Classes
                     {
                         while (dr.Read())
                         {
-                            heroes[0].universe = new Universe{
+                            hero.universe = new Universe{
                                 universeId = dr.GetInt32(0),
                                 universeName = dr.GetString(1),
                                 logoUrl = dr.GetString(2)
@@ -171,11 +168,9 @@ namespace Tour_of_Heroes.Classes
 
                     if (dr.HasRows)
                     {
-                        heroes[0].heroBio = new List<HeroBio>();
-
                         while (dr.Read())
                         {
-                            heroes[0].heroBio.Add(new HeroBio
+                            hero.heroBio.Add(new HeroBio
                             {
                                 heroBioId = dr.GetInt32(0),
                                 order = dr.GetInt32(1),
@@ -203,7 +198,7 @@ namespace Tour_of_Heroes.Classes
                 throw ex;
             }
 
-            return heroes;
+            return hero;
         }
 
         public int Insert(Hero newRow)

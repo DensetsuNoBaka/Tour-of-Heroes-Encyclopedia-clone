@@ -5,9 +5,9 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { AddUniverseComponent } from 'src/app/components/add-universe/add-universe.component';
 
-import {Hero} from 'src/app/Entities/hero';
-import {ListItem} from 'src/app/Entities/listitem';
-import {HeroService} from 'src/app/services/hero/hero.service';
+import { Hero } from 'src/app/Entities/hero';
+import { ListItem } from 'src/app/Entities/listitem';
+import { HeroService } from 'src/app/services/hero/hero.service';
 import { UniverseService } from 'src/app/services/universe/universe.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class HeroesComponent implements OnInit {
   selectedHeroId: number = 0;
   selectedUniverseId: number = 0;
 
-  constructor(private heroService: HeroService, private universeService: UniverseService ,private router: Router, private route: ActivatedRoute, public matDialog: MatDialog) { }
+  constructor(private heroService: HeroService, private universeService: UniverseService, private router: Router, private route: ActivatedRoute, public matDialog: MatDialog) { }
 
   ngOnInit(): void 
   {    
@@ -84,7 +84,7 @@ export class HeroesComponent implements OnInit {
       this.heroService
         .getHero(this.selectedHeroId)
         .subscribe(heroes => {
-          this.selectedHero = heroes[0];
+          this.selectedHero = heroes;
         });
     } else
     {
@@ -104,8 +104,8 @@ export class HeroesComponent implements OnInit {
     dialogConfig.height = "350px";
     dialogConfig.width = "600px";
     dialogConfig.data = {
-    newUniverseId: this.selectedUniverseId
-  }
+      newUniverseId: this.selectedUniverseId
+    }
     
     let modalDialog = this.matDialog.open(AddUniverseComponent, dialogConfig);
 

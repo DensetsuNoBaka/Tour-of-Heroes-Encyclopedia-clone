@@ -13,10 +13,7 @@ import {Universe} from 'src/app/Entities/universe';
 })
 export class UniverseService {
 
-  constructor(public http:HttpClient)  
-  {
-
-  }
+  constructor(public http:HttpClient) { }
 
   getUniverseList()
   {
@@ -27,6 +24,19 @@ export class UniverseService {
       let universes: ListItem[];
       universes = <ListItem[]>JSON.parse(data.toString());
 
+      return universes;
+    }));
+  }
+
+  getUniverse(universeId: number)
+  {
+    var opts = new HttpParams();
+    var universes = new Universe();
+    opts = opts.append("universeId", `${universeId}`);
+
+    return this.http.get<Universe>(`${config.api_url}Universe/Get`, {params: opts}).pipe(map(data => {
+      let universes: Universe;
+      universes = <Universe>JSON.parse(data.toString());
       return universes;
     }));
   }

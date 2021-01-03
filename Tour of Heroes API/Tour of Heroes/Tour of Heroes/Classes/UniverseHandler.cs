@@ -72,9 +72,91 @@ namespace Tour_of_Heroes.Classes
 
             return universe;
         }
-        public List<Universe> Get(int? universeId)
+        public Universe Get(int universeId)
         {
-            return new List<Universe>();
+            Universe universe = new Universe();
+
+            string json = string.Empty;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("Universe_Get", conn);
+                    cmd.Parameters.AddWithValue("@Universe_ID", universeId);
+
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    //open connection
+                    conn.Open();
+
+                    //execute the SQLCommand
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            universe.universeId = universeId;
+                            universe.universeName = dr.GetString(1);
+                            universe.logoUrl = dr.GetString(2);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No data found.");
+                    }
+
+                    //close data reader
+                    dr.Close();
+
+                    //close connection
+                    conn.Close();
+
+                    cmd = new SqlCommand("Hero_Get", conn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Universe_ID", universeId);
+
+                    //open connection
+                    conn.Open();
+
+                    //execute the SQLCommand
+                    dr = cmd.ExecuteReader();
+
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            universe.heroes.Add(new ListItem
+                            {
+                                name = dr.GetString(1),
+                                value = dr.GetInt32(0)
+                            });
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No data found.");
+                    }
+
+                    //close data reader
+                    dr.Close();
+
+                    //close connection
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                //display error message
+                Console.WriteLine("Exception: " + ex.Message);
+                throw ex;
+            }
+
+            //return universe;
+            return universe;
         }
         public int Insert(Universe newRow)
         {
@@ -133,7 +215,36 @@ namespace Tour_of_Heroes.Classes
         }
         public void Update(Universe modifiedRow)
         {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("Universe_put", conn);
 
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Universe_ID", modifiedRow.universeId);
+                    cmd.Parameters.AddWithValue("@Universe_Name", modifiedRow.universeName);
+                    cmd.Parameters.AddWithValue("@Logo_Url", modifiedRow.logoUrl);
+
+                    //open connection
+                    conn.Open();
+
+                    //execute the SQLCommand
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    //close data reader
+                    dr.Close();
+
+                    //close connection
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                //display error message
+                Console.WriteLine("Exception: " + ex.Message);
+                throw ex;
+            }
         }
         public void Delete(int id)
         {

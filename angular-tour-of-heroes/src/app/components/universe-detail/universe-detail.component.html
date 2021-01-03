@@ -1,0 +1,33 @@
+<div>
+    <div>
+        <h1 id="title" (click)="onClick($event)">{{universe.universeName}}</h1>
+        <div id="edittitle" hidden="true">
+            <h1>Title: <input [(ngModel)]="modifiedUniverse.universeName" placeholder="Title"/></h1>
+            <div>
+                <button mat-raised-button id="title-save-button" (click)="onSave($event)">
+                    Save
+                </button>
+                <button mat-raised-button id="title-cancel-button" (click)="onCancel($event)">
+                    Go back
+                </button>
+            </div>
+        </div>
+        <div><img id="logo" (click)="onClick($event)" class="profilePic" src={{universe.logoUrl}}></div>
+        <div id="editlogo" hidden="true">Universe Logo Url: <input [(ngModel)]="modifiedUniverse.logoUrl" placeholder="http://url.com"/>
+            <div>
+                <button mat-raised-button id="logo-save-button" (click)="onSave($event)">
+                    Save
+                </button>
+                <button mat-raised-button id="logo-cancel-button" (click)="onCancel($event)">
+                    Go back
+                </button>
+            </div>
+        </div>
+
+        <!--TODO: Heroes link list-->
+        <h2>Affiliated Characters:</h2>
+        <div *ngFor="let hero of universe.heroes">
+            <div>{{hero.name}}</div>
+        </div>
+    </div>
+</div>

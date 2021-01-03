@@ -9,7 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddUniverseComponent } from './components/add-universe/add-universe.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDialogModule} from '@angular/material/dialog'; 
+import {MatDialogModule} from '@angular/material/dialog';
+import { UniversesComponent } from './components/universes/universes.component';
+import { UniverseDetailComponent } from './components/universe-detail/universe-detail.component'; 
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     HeroesComponent,
     HeroDetailComponent,
     DashboardComponent,
-    AddUniverseComponent
+    AddUniverseComponent,
+    UniversesComponent,
+    UniverseDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,9 @@
+<div class="selection">Universe: 
+    <select [(ngModel)]="selectedUniverseId" name="universe" (change)="onUniverseSelect($event)">
+      <option value="0" selected></option>
+      <option value="-1">-Create new Universe-</option>
+      <option *ngFor="let universe of universes" [value]="universe.value">
+        {{universe.name}}
+      </option>
+    </select>
+  </div>

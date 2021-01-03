@@ -46,9 +46,9 @@ export class HeroService {
     var heroes = new Hero();
     opts = opts.append("heroId", `${heroId}`);
 
-    return this.http.get<Hero[]>(`${config.api_url}Heroes/Get`, {params: opts}).pipe(map(data => {
-      let heroes: Hero[];
-      heroes = <Hero[]>JSON.parse(data.toString());
+    return this.http.get<Hero>(`${config.api_url}Heroes/Get`, {params: opts}).pipe(map(data => {
+      let heroes: Hero;
+      heroes = <Hero>JSON.parse(data.toString());
       return heroes;
     }));
   }

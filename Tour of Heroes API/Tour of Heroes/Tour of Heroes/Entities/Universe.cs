@@ -10,5 +10,11 @@ namespace Tour_of_Heroes.Entities
         public int universeId { get; set; }
         public string universeName { get; set; }
         public string logoUrl { get; set; }
+        public List<ListItem> heroes { get; set; }
+
+        public Universe()
+        {
+            heroes = new List<ListItem>();
+        }
     }
 }
