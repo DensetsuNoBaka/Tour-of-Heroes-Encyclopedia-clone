@@ -12,240 +12,99 @@ namespace Tour_of_Heroes.Classes
     public class UniverseHandler : IHandler<Universe>
     {
         private readonly string connectionString;
+        private readonly SprocRunner _sprocRunner;
 
-        public UniverseHandler()
+        public UniverseHandler(SprocRunner sprocRunner)
         {
             connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString;
+            _sprocRunner = sprocRunner;
         }
 
-        public List<ListItem> List(int? id)
+        public async Task<List<ListItem>> List(int? id)
         {
-            List<ListItem> universe = new List<ListItem>();
+            List<ListItem> universeList = new List<ListItem>();
 
-            string json = string.Empty;
+            _sprocRunner.sprocName = "Universe_Get";
+            if (id != null) _sprocRunner.AddParameter("@Universe_ID", id ?? default(int));
+            await _sprocRunner.RunSproc();
 
-            try
+            for (int c = 0; c < _sprocRunner.dataOutput.Count; c++)
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                universeList.Add(new ListItem
                 {
-                    SqlCommand cmd = new SqlCommand("Universe_Get", conn);
-                    //cmd.Parameters.AddWithValue("@Universe_ID", universeId);
-
-
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    //open connection
-                    conn.Open();
-
-                    //execute the SQLCommand
-                    SqlDataReader dr = cmd.ExecuteReader();
-
-                    if (dr.HasRows)
-                    {
-                        while (dr.Read())
-                        {
-                            universe.Add(new ListItem
-                            {
-                                name = dr.GetString(1),
-                                value = dr.GetInt32(0)
-                            });
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("No data found.");
-                    }
-
-                    //close data reader
-                    dr.Close();
-
-                    //close connection
-                    conn.Close();
-                }
+                    name = _sprocRunner.dataOutput[c]["UNIVERSE_NAME"],
+                    value = Int32.Parse(_sprocRunner.dataOutput[c]["UNIVERSE_ID"])
+                });
             }
-            catch (Exception ex)
+
+            _sprocRunner.Clear();
+
+            return universeList;
+        }
+
+        public async Task<Universe> Get(int universeId)
+        {
+            Universe universe;
+
+            _sprocRunner.sprocName = "Universe_Get";
+            _sprocRunner.AddParameter("@Universe_ID", universeId);
+            await _sprocRunner.RunSproc();
+
+            universe = new Universe
             {
-                //display error message
-                Console.WriteLine("Exception: " + ex.Message);
-                throw ex;
+                universeId = Int32.Parse(_sprocRunner.dataOutput[0]["UNIVERSE_ID"]),
+                universeName = _sprocRunner.dataOutput[0]["UNIVERSE_NAME"],
+                logoUrl = _sprocRunner.dataOutput[0]["LOGO_URL"]
+            };
+
+            _sprocRunner.Clear();
+
+            _sprocRunner.sprocName = "Hero_Get";
+            _sprocRunner.AddParameter("@Universe_ID", universeId);
+            await _sprocRunner.RunSproc();
+
+            for (int c = 0; c < _sprocRunner.dataOutput.Count; c++)
+            {
+                universe.heroes.Add(new ListItem
+                {
+                    name = _sprocRunner.dataOutput[c]["HERO_NAME"],
+                    value = Int32.Parse(_sprocRunner.dataOutput[c]["HERO_ID"])
+                });
             }
+
+            _sprocRunner.Clear();
 
             return universe;
         }
-        public Universe Get(int universeId)
-        {
-            Universe universe = new Universe();
 
-            string json = string.Empty;
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    SqlCommand cmd = new SqlCommand("Universe_Get", conn);
-                    cmd.Parameters.AddWithValue("@Universe_ID", universeId);
-
-
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    //open connection
-                    conn.Open();
-
-                    //execute the SQLCommand
-                    SqlDataReader dr = cmd.ExecuteReader();
-
-                    if (dr.HasRows)
-                    {
-                        while (dr.Read())
-                        {
-                            universe.universeId = universeId;
-                            universe.universeName = dr.GetString(1);
-                            universe.logoUrl = dr.GetString(2);
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("No data found.");
-                    }
-
-                    //close data reader
-                    dr.Close();
-
-                    //close connection
-                    conn.Close();
-
-                    cmd = new SqlCommand("Hero_Get", conn);
-
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Universe_ID", universeId);
-
-                    //open connection
-                    conn.Open();
-
-                    //execute the SQLCommand
-                    dr = cmd.ExecuteReader();
-
-                    if (dr.HasRows)
-                    {
-                        while (dr.Read())
-                        {
-                            universe.heroes.Add(new ListItem
-                            {
-                                name = dr.GetString(1),
-                                value = dr.GetInt32(0)
-                            });
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("No data found.");
-                    }
-
-                    //close data reader
-                    dr.Close();
-
-                    //close connection
-                    conn.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                //display error message
-                Console.WriteLine("Exception: " + ex.Message);
-                throw ex;
-            }
-
-            //return universe;
-            return universe;
-        }
-        public int Insert(Universe newRow)
+        public async Task<int> Insert(Universe newRow)
         {
             int newId = 0;
 
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    SqlCommand cmd = new SqlCommand("Universe_put", conn);
+            _sprocRunner.sprocName = "Universe_Put";
+            _sprocRunner.AddParameter("@Universe_Name", newRow.universeName);
+            _sprocRunner.AddParameter("@Logo_Url", newRow.logoUrl);
+            _sprocRunner.AddOutputParameter("@Universe_ID", 0);
+            await _sprocRunner.RunSproc();
 
-                    cmd.CommandType = CommandType.StoredProcedure;
+            newId = Int32.Parse(_sprocRunner.outValue);
 
-                    cmd.Parameters.AddWithValue("@Universe_Name", newRow.universeName);
-                    cmd.Parameters.AddWithValue("@Logo_Url", newRow.logoUrl);
-
-                    SqlParameter outputParam = new SqlParameter("@Universe_ID", SqlDbType.Int);
-                    outputParam.Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add(outputParam);
-
-                    //open connection
-                    conn.Open();
-
-                    //execute the SQLCommand
-                    SqlDataReader dr = cmd.ExecuteReader();
-
-                    if (dr.HasRows)
-                    {
-                        while (dr.Read())
-                        {
-                            newId = dr.GetInt32(0);
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("No data found.");
-                    }
-
-                    //close data reader
-                    dr.Close();
-
-                    newId = (int)outputParam.Value;
-
-                    //close connection
-                    conn.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                //display error message
-                Console.WriteLine("Exception: " + ex.Message);
-                throw ex;
-            }
+            _sprocRunner.Clear();
 
             return newId;
         }
-        public void Update(Universe modifiedRow)
+
+        public async Task Update(Universe modifiedRow)
         {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    SqlCommand cmd = new SqlCommand("Universe_put", conn);
+            _sprocRunner.sprocName = "Universe_Put";
+            _sprocRunner.AddParameter("@Universe_Name", modifiedRow.universeName);
+            _sprocRunner.AddParameter("@Logo_Url", modifiedRow.logoUrl);
+            _sprocRunner.AddParameter("@Universe_ID", modifiedRow.universeId);
+            await _sprocRunner.RunSproc();
 
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Universe_ID", modifiedRow.universeId);
-                    cmd.Parameters.AddWithValue("@Universe_Name", modifiedRow.universeName);
-                    cmd.Parameters.AddWithValue("@Logo_Url", modifiedRow.logoUrl);
-
-                    //open connection
-                    conn.Open();
-
-                    //execute the SQLCommand
-                    SqlDataReader dr = cmd.ExecuteReader();
-
-                    //close data reader
-                    dr.Close();
-
-                    //close connection
-                    conn.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                //display error message
-                Console.WriteLine("Exception: " + ex.Message);
-                throw ex;
-            }
+            _sprocRunner.Clear();
         }
+
         public void Delete(int id)
         {
 

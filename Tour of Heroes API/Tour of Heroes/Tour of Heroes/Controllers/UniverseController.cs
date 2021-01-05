@@ -23,29 +23,33 @@ namespace Tour_of_Heroes.Controllers
 
         [Route("List")]
         //[EnableCors("AllPolicy")]
-        public JsonResult List()
+        public async Task<JsonResult> List()
         {
-            string json = JsonConvert.SerializeObject(_universeHandler.List(null));
+            string json = JsonConvert.SerializeObject(await _universeHandler.List(null));
             return new JsonResult(json);
         }
 
         [Route("Get")]
         //[EnableCors("AllPolicy")]
-        public JsonResult Get(int universeId)
+        public async Task<JsonResult> Get(int universeId)
         {
-            string json = JsonConvert.SerializeObject(_universeHandler.Get(universeId));
+            string json = JsonConvert.SerializeObject(await _universeHandler.Get(universeId));
             return new JsonResult(json);
         }
 
         [Route("Put")]
         [HttpPut]
         //[EnableCors("AllPolicy")]
-        public JsonResult Put(Universe universe)
+        public async Task<JsonResult> Put(Universe universe)
         {
             int universeId = 0;
 
-            if (universe.universeId == 0) universeId = _universeHandler.Insert(universe);
-            else _universeHandler.Update(universe);
+            if (universe.universeId == 0) universeId = await _universeHandler.Insert(universe);
+            else 
+            {
+                universeId = universe.universeId;
+                await _universeHandler.Update(universe);
+            }
 
             return new JsonResult(JsonConvert.SerializeObject(universeId));
         }
