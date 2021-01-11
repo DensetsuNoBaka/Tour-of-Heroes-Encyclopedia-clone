@@ -49,6 +49,7 @@ namespace Tour_of_Heroes
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddScoped<IHandler<Hero>, HeroHandler>();
             services.AddScoped<IHandler<Universe>, UniverseHandler>();
+            services.AddScoped<IHandler<Power>, PowerHandler>();
             services.AddScoped<SprocRunner, SprocRunner>();
             return services;
         }
